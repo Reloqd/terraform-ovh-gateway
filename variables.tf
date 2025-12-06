@@ -3,7 +3,7 @@ variable "gateway_service_name" {
   type        = string
 }
 
-variable "gateway" {
+variable "gateways" {
   description = "List of subnets"
   type = list(object({
     gateway_name         = string

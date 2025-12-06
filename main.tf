@@ -1,6 +1,6 @@
 resource "ovh_cloud_project_gateway" "gateway" {
   for_each = {
-    for gateway in var.gateway : gateway.gateway_name => gateway
+    for gateway in var.gateways : gateway.gateway_name => gateway
   }
   service_name = var.gateway_service_name
   name         = each.value.gateway_name
