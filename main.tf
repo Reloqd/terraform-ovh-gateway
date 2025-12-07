@@ -1,11 +1,8 @@
-resource "ovh_cloud_project_gateway" "gateway" {
-  for_each = {
-    for gateway in var.gateways : gateway.gateway_name => gateway
-  }
+resource "ovh_cloud_project_gateway" "this" {
   service_name = var.gateway_service_name
-  name         = each.value.gateway_name
-  model        = each.value.gateway_model
-  region       = each.value.gateway_region
-  network_id   = var.gateway_openstack_ids[each.value.gateway_region]
-  subnet_id    = var.gateway_subnet_ids[each.value.gateway_region]
+  name         = var.gateway_name
+  model        = var.gateway_model
+  region       = var.gateway_region
+  network_id   = var.gateway_network_id
+  subnet_id    = var.gateway_subnet_id
 }
